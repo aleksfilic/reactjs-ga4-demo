@@ -3,13 +3,13 @@ import logo from '../../logo.svg';
 
 import './About.css';
 
-const About = () => {
+const About = ({ tagId }) => {
   const version = '1.1.1.3';
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p className="title">Running Google Analytics</p>
+        <p className="title">Running Google Analytics with tag: {tagId}</p>
       </header>
       <p>version : {version}</p>
       <form>

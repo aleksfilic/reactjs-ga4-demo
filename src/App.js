@@ -4,6 +4,7 @@ import About from './components/About/About';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
+  const tagId = 'G-GB4JBF54V2';
   return (
     <Router>
       <div>
@@ -22,9 +23,9 @@ function App() {
         <hr />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home tagId={tagId} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard tagId={tagId} />} />
         </Routes>
       </div>
     </Router>

@@ -9,7 +9,7 @@ class List extends Component {
 
   addItemHandler = () => {
     console.log('add item');
-    window.gtag('event', 'add_item_event', { send_to: 'G-XFQHT4TXGG' });
+    window.gtag('event', 'add_item_event', { send_to: this.props.tagId });
     this.setState((prevState) => {
       return {
         items: prevState.items.concat(prevState.items.length + 1),
@@ -18,12 +18,18 @@ class List extends Component {
   };
 
   removeItemHandler = (selIndex) => {
+    console.log('remove item');
+    window.gtag('event', 'remove_item_event', { send_to: this.props.tagId });
     this.setState((prevState) => {
       return {
         items: prevState.items.filter((_, index) => index !== selIndex),
       };
     });
   };
+
+  componentDidMount() {
+    window.gtag('event', 'page_load', { send_to: this.props.tagId });
+  }
 
   render() {
     const listItems = this.state.items.map((item, index) => (

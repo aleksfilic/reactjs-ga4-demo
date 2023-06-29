@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Dashboard = () => {
-  return <div>Dashboard (G-XFQHT4TXGG)</div>;
+const Dashboard = ({ tagId }) => {
+  return <div>Dashboard ({tagId})</div>;
 };
 
 export default Dashboard;
