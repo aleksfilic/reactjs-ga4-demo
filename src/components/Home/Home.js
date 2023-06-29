@@ -3,7 +3,6 @@ import './Home.css';
 import List from '../List/List';
 
 const Home = () => {
-  // console.log('render');
   return (
     <div className="App">
       <h1>React Animations List</h1>

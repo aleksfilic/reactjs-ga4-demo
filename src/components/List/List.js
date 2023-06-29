@@ -20,7 +20,7 @@ class List extends Component {
   removeItemHandler = (selIndex) => {
     this.setState((prevState) => {
       return {
-        items: prevState.items.filter((item, index) => index !== selIndex),
+        items: prevState.items.filter((_, index) => index !== selIndex),
       };
     });
   };
