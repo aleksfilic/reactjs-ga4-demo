@@ -10,6 +10,7 @@ const About = ({ tagId }) => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p className="title">Running Google Analytics with tag: {tagId}</p>
+        <h4>update with test example</h4>
       </header>
       <p>version : {version}</p>
       <form>

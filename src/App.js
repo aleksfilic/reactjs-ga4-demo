@@ -24,7 +24,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home tagId={tagId} />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About tagId={tagId} />} />
           <Route path="/dashboard" element={<Dashboard tagId={tagId} />} />
         </Routes>
       </div>
