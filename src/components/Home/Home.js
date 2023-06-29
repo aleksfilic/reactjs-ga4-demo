@@ -4,7 +4,7 @@ const Home = ({ tagId }) => {
   return (
     <div className="App">
       <h1>React Animations List</h1>
-      <h2>using gtag (example - G-XFQHT4TXGG)</h2>
+      <h2>using gtag (example - {tagId})</h2>
       <List tagId={tagId} />
     </div>
   );
