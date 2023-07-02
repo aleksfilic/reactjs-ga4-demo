@@ -12,7 +12,7 @@ class List extends Component {
 
     console.log('page view', this.props.tagId);
     // window.gtag('event', 'page_view', { send_to: this.props.tagId });
-    window.gtag('event', 'page_view', { send_to: 'G-BH3L7FTCWX' });
+    window.gtag('event', 'page_view', { send_to: 'G-GVNHZ8W57J' });
     console.log('gtag',  window.gtag)
   }
 
