@@ -4,7 +4,7 @@ import About from './components/About/About';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
-  const tagId = 'G-GB4JBF54V2';
+  const tagId = 'G-BH3L7FTCWX';
   return (
     <Router>
       <div>
