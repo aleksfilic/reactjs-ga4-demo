@@ -7,6 +7,15 @@ class List extends Component {
     items: [1, 2, 3],
   };
 
+  componentDidMount() {
+    // const tagId = 'G-BH3L7FTCWX';
+
+    console.log('page view', this.props.tagId);
+    // window.gtag('event', 'page_view', { send_to: this.props.tagId });
+    window.gtag('event', 'page_view', { send_to: 'G-BH3L7FTCWX' });
+    console.log('gtag',  window.gtag)
+  }
+
   addItemHandler = () => {
     console.log('add item');
     window.gtag('event', 'add_item_event', { send_to: this.props.tagId });
@@ -27,9 +36,6 @@ class List extends Component {
     });
   };
 
-  componentDidMount() {
-    window.gtag('event', 'page_load', { send_to: this.props.tagId });
-  }
 
   render() {
     const listItems = this.state.items.map((item, index) => (
