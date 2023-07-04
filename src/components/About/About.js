@@ -1,10 +1,10 @@
-import React from "react";
-import logo from "../../logo.svg";
+import React from 'react';
+import logo from '../../logo.svg';
 
-import "./About.css";
+import './About.css';
 
 const About = ({ tagId }) => {
-  const version = "1.1.1.3";
+  const version = '1.1.1.3';
   return (
     <div className="App">
       <header className="App-header">
