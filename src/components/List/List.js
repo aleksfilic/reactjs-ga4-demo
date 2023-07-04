@@ -19,45 +19,31 @@ class List extends Component {
 
   setDimentionsConfig(tagId) {
     const config = {
-      custom_map: {
-        // dimension0: 'dimension_name0',
-        // dimension1: 'dimension_name1',
-        // 'dimension2': 'dimension_name2'
-      },
+      custom_map: {},
     };
 
     this.gaDimensions.forEach((dim, index) => {
       config.custom_map[`dimention${index}`] = dim;
     });
 
-    console.log({ config }); // eslint-disable-line
+    // console.log({ config }); // eslint-disable-line
     window.gtag("config", tagId, config);
   }
-
-  // gtag('config', 'TAG_ID', {
-  //   'custom_map': {'metric<Index>': 'metric_name'}
-  // });
-  // gtag('event', 'any_event_name', {'metric_name': 'metric_value'});
 
   getDimentionValues() {
     // let counter = 0
     const dimentions = {};
     this.gaDimensions.forEach((dim, index) => {
-      // console.log({ dim, index }) // eslint-disable-line
       const propsName = this.gaDimensions[index];
-      // const dimentionIndex = `dimention${index}`;
+
       const value = this.propsForDimentions[dim];
-      // console.log({ propsName, value }) // eslint-disable-line
+
       dimentions[propsName] = value;
-      // return {
-      //   // [dimentionIndex]: value,
-      //   [propsName]: value,
-      // };
     });
 
     dimentions.user_id = getRandomUser();
     dimentions.account_id = getRandomAccount();
-    console.log({ dimentions }); // eslint-disable-line
+    // console.log({ dimentions }); // eslint-disable-line
 
     return dimentions;
   }
@@ -65,20 +51,19 @@ class List extends Component {
   componentDidMount() {
     this.gaDimensions = Object.keys(this.propsForDimentions);
 
-    // const tagId = 'G-BH3L7FTCWX';
-
     console.log("page_view_test", this.props.tagId);
     window.gtag("event", "page_view_test", { send_to: this.props.tagId });
-    // window.gtag('event', 'page_view', { send_to: 'G-GVNHZ8W57J' });
-    // console.log('gtag',  window.gtag)
   }
 
   addEventWithDimentions = () => {
     console.log("add EventWithDimentions", this.props.tagId);
+
     this.setDimentionsConfig(this.props.tagId);
 
     const dimentions = this.getDimentionValues();
+
     console.log({ dimentions });
+
     window.gtag("event", "custom_event_with_dimentions", {
       send_to: this.props.tagId,
       ...dimentions,
@@ -137,3 +122,12 @@ class List extends Component {
 }
 
 export default List;
+
+// old
+
+// const config = {
+//   custom_map: {
+//     // dimension0: 'dimension_name0',
+//     // dimension1: 'dimension_name1',
+//     // 'dimension2': 'dimension_name2'
+//   },
