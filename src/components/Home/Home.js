@@ -1,4 +1,4 @@
-import List from '../List/List';
+import List from "../List/List";
 
 const Home = ({ tagId }) => {
   return (
@@ -11,20 +11,3 @@ const Home = ({ tagId }) => {
 };
 
 export default Home;
-
-// import Modal from '../Modal/Modal';
-// import Backdrop from '../Backdrop/Backdrop';
-// import { useState } from 'react';
-
-// const [modalIsOpen, setModalIsOpen] = useState(false);
-// const openModal = () => setModalIsOpen(true);
-// const closeModal = () => setModalIsOpen(false);
-/*
-<Modal show={modalIsOpen} closed={() => closeModal()} /> 
-<Backdrop show={modalIsOpen} />
- <button className="Button" onClick={() => openModal()}>
-  Open Modal
-</button> 
-   <h3>Animating Lists</h3> 
-  
-*/
