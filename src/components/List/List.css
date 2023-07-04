@@ -20,3 +20,9 @@
 .ListItem:active {
   background-color: #ccc;
 }
+
+
+.DimensionsButton:hover,
+.DimensionsButton:active {
+  background-color: #115b4a;
+}

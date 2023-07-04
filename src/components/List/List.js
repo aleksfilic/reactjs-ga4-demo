@@ -4,10 +4,10 @@ import "./List.css";
 
 class List extends Component {
   state = {
-    items: [1, 2, 3],
+    items: [1, 2, 3,1 , 1],
   };
 
-  propsForDimentions = {
+  propsForDimensions = {
     account_id: "1234",
     account_created_at: "2014-06-30T09:17:44.000Z",
     account_package: "premier",
@@ -18,71 +18,53 @@ class List extends Component {
     request_source: "client",
   };
 
-  setDimentionsConfig(tagId) {
+  setDimensionsConfig(tagId) {
     const config = {
-      custom_map: {
-        // dimension0: 'dimension_name0',
-        // dimension1: 'dimension_name1',
-        // 'dimension2': 'dimension_name2'
-      },
+      custom_map: {},
     };
 
     this.gaDimensions.forEach((dim, index) => {
-      config.custom_map[`dimention${index}`] = dim;
+      config.custom_map[`dimension${index}`] = dim;
     });
 
-    console.log({ config }); // eslint-disable-line
+    // console.log({ config }); // eslint-disable-line
     window.gtag("config", tagId, config);
   }
 
-  // gtag('config', 'TAG_ID', {
-  //   'custom_map': {'metric<Index>': 'metric_name'}
-  // });
-  // gtag('event', 'any_event_name', {'metric_name': 'metric_value'});
-
-  getDimentionValues() {
-    // let counter = 0
-    const dimentions = {};
+  getDimensionValues() {
+    const dimensions = {};
     this.gaDimensions.forEach((dim, index) => {
-      // console.log({ dim, index }) // eslint-disable-line
       const propsName = this.gaDimensions[index];
-      // const dimentionIndex = `dimention${index}`;
-      const value = this.propsForDimentions[dim];
-      // console.log({ propsName, value }) // eslint-disable-line
-      dimentions[propsName] = value;
-      // return {
-      //   // [dimentionIndex]: value,
-      //   [propsName]: value,
-      // };
+
+      dimensions[propsName] = this.propsForDimensions[dim];
     });
 
-    dimentions.user_id = getRandomUser();
-    dimentions.account_id = getRandomAccount();
-    console.log({ dimentions }); // eslint-disable-line
+    dimensions.user_id = getRandomUser();
+    dimensions.account_id = getRandomAccount();
+    // console.log({ dimensions }); // eslint-disable-line
 
-    return dimentions;
+    return dimensions;
   }
 
   componentDidMount() {
-    this.gaDimensions = Object.keys(this.propsForDimentions);
-
-    // const tagId = 'G-BH3L7FTCWX';
+    this.gaDimensions = Object.keys(this.propsForDimensions);
 
     console.log("page_view_test", this.props.tagId);
     window.gtag("event", "page_view_test", { send_to: this.props.tagId });
-    // window.gtag('event', 'page_view', { send_to: 'G-GVNHZ8W57J' });
-    // console.log('gtag',  window.gtag)
   }
 
-  addEventWithDimentions = () => {
-    console.log("add EventWithDimentions", this.props.tagId);
-    this.setDimentionsConfig(this.props.tagId);
+  addEventWithDimensions = () => {
+    console.log("add EventWithDimensions", this.props.tagId);
 
-    const dimentions = this.getDimentionValues();
-    console.log({ dimentions });
-    window.gtag("event", "custom_event_with_dimentions", {
+    this.setDimensionsConfig(this.props.tagId);
+
+    const dimensions = this.getDimensionValues();
+
+    console.log({ dimensions });
+
+    window.gtag("event", "custom_event_with_dimensions", {
       send_to: this.props.tagId,
-      ...dimentions,
+      ...dimensions,
     });
   };
 
@@ -121,10 +103,10 @@ class List extends Component {
       <div>
         <div>
           <button
-            className="DimationsButton"
-            onClick={() => this.addEventWithDimentions()}
+            className="DimensionsButton"
+            onClick={() => this.addEventWithDimensions()}
           >
-            Add Event With Dimentions
+            Add Event With Dimensions
           </button>
         </div>
         <button className="Button" onClick={() => this.addItemHandler()}>
@@ -138,3 +120,13 @@ class List extends Component {
 }
 
 export default List;
+
+// old
+
+// const config = {
+//   custom_map: {
+//     // dimension0: 'dimension_name0',
+//     // dimension1: 'dimension_name1',
+//     // 'dimension2': 'dimension_name2'
+//   },
+
